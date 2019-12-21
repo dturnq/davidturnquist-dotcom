@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+
+  <!-- update the version number as needed - this must come first-->
+  <script defer src="/__/firebase/7.6.1/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script defer src="/__/firebase/7.6.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.6.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.6.1/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.6.1/firebase-storage.js"></script>
+  <script src="/__/firebase/7.6.1/firebase-analytics.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+
+  <style media="screen">
+  body { display: grid;
+    grid-template-areas:
+    "header header header"
+    "nav article ads"
+    "footer footer footer";
+    grid-template-rows: 80px 1fr 70px;
+    grid-template-columns: 20% 1fr 15%;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    height: 100vh;
+    margin: 0;
+  }
+  header, footer, article, nav, div {
+    padding: 1.2em;
+    background: white;
+  }
+  #pageHeader {
+    grid-area: header;
+  }
+  #pageFooter {
+    grid-area: footer;
+  }
+  #mainArticle {
+    grid-area: article;
+  }
+  #mainNav {
+    grid-area: nav;
+  }
+  #siteAds {
+    grid-area: ads;
+  }
+  /* Stack the layout on small devices/viewports. */
+  @media all and (max-width: 575px) {
+    body {
+      grid-template-areas:
+      "header"
+      "article"
+      "ads"
+      "nav"
+      "footer";
+      grid-template-rows: 80px 1fr 70px 1fr 70px;
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>
+</head>
+<body>
+  <header id="pageHeader">a playground</header>
+
+  <div id="mainArticle">
+    <h2>David Turnquist</h2>
+    <h1>👋</h1>
+    <p>This website exists for absolutely no reason whatsoever</p>
+  </div>
+
+  <footer id="pageFooter">
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    // // The Firebase SDK is initialized and available here!
+    //
+    // firebase.auth().onAuthStateChanged(user => { });
+    // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+    // firebase.messaging().requestPermission().then(() => { });
+    // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+    //
+    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+    try {
+      let app = firebase.app();
+      let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+      document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+    } catch (e) {
+      console.error(e);
+      document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+    }
+  });
+  </script>
+</footer>
+
+
+
+</body>
+</html>
